@@ -19,7 +19,8 @@ export const getBasePath = (): string => {
 export const getAssetPath = (assetPath: string): string => {
   // Remove leading slash if present
   const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
-  // Add cache-busting parameter
-  const version = 'v3.0.0';
-  return `${getBasePath()}${cleanPath}?v=${version}`;
+  // Add aggressive cache-busting with timestamp
+  const timestamp = Date.now();
+  const version = 'v4.0.0';
+  return `${getBasePath()}${cleanPath}?v=${version}&t=${timestamp}`;
 };
