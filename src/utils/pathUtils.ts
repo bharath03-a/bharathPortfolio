@@ -1,0 +1,23 @@
+/**
+ * Utility function to get the correct base path for assets
+ * In production (GitHub Pages), this will be '/bharathPortfolio/'
+ * In development, this will be '/'
+ */
+export const getBasePath = (): string => {
+  // Check if we're in production (GitHub Pages)
+  if (import.meta.env.PROD) {
+    return '/bharathPortfolio/';
+  }
+  return '/';
+};
+
+/**
+ * Get the correct path for an asset
+ * @param assetPath - The asset path (e.g., '/image.png')
+ * @returns The correct full path for the asset
+ */
+export const getAssetPath = (assetPath: string): string => {
+  // Remove leading slash if present
+  const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
+  return `${getBasePath()}${cleanPath}`;
+};

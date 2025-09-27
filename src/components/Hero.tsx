@@ -2,6 +2,7 @@
 import { ArrowRight, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TypewriterAnimation from './TypewriterAnimation';
+import { getAssetPath } from '@/utils/pathUtils';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -64,7 +65,7 @@ const Hero = () => {
                   <div className="relative group">
                     <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-64 lg:h-80 rounded-3xl overflow-hidden border-3 border-white shadow-2xl mx-auto transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl">
                       <img 
-                        src="/25_0673_COIS_convocation-544.jpg" 
+                        src={getAssetPath("/25_0673_COIS_convocation-544.jpg")} 
                         alt="Bharath - Graduation Photo"
                         className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                       />

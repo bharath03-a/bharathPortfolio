@@ -2,9 +2,9 @@ export const loadStyreneFont = () => {
   if (typeof window === 'undefined') return Promise.resolve();
 
   return new Promise<void>((resolve) => {
-    // Try multiple font sources for better reliability
+    // Use Google Fonts as primary source, with CDN fonts as fallback
     const fontSources = [
-      'https://fonts.cdnfonts.com/css/styrene',
+      'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
       'https://fonts.cdnfonts.com/css/styrene?display=swap'
     ];
     
@@ -20,9 +20,10 @@ export const loadStyreneFont = () => {
       link.onload = () => {
         if (!loaded) {
           loaded = true;
-          document.body.style.fontFamily = 'Styrene, Inter, sans-serif';
+          // Use Inter as primary font since Styrene is unreliable
+          document.body.style.fontFamily = 'Inter, system-ui, -apple-system, sans-serif';
           document.body.classList.add('font-loaded');
-          console.log('Styrene font loaded successfully');
+          console.log('Font loaded successfully');
           resolve();
         }
       };
@@ -32,7 +33,8 @@ export const loadStyreneFont = () => {
         if (attempts < fontSources.length) {
           tryLoadFont(fontSources[attempts]);
         } else {
-          console.warn('Failed to load Styrene font from all sources, using fallback');
+          console.warn('Failed to load font from all sources, using system fallback');
+          document.body.style.fontFamily = 'system-ui, -apple-system, sans-serif';
           resolve();
         }
       };
@@ -45,9 +47,10 @@ export const loadStyreneFont = () => {
     // Fallback timeout
     setTimeout(() => {
       if (!loaded) {
-        console.warn('Styrene font loading timed out, falling back to Inter');
+        console.warn('Font loading timed out, using system fallback');
+        document.body.style.fontFamily = 'system-ui, -apple-system, sans-serif';
         resolve();
       }
-    }, 5000);
+    }, 3000);
   });
 };

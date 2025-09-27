@@ -1,29 +1,31 @@
 
+import { getAssetPath } from '@/utils/pathUtils';
+
 const LogoGrid = () => {
   const logos = [
     {
       name: "HSBC",
-      src: "/hsbc.png",
+      src: getAssetPath("/hsbc.png"),
       alt: "HSBC Logo"
     },
     {
       name: "Indian Institute of Technology Patna",
-      src: "/iitp.png",
+      src: getAssetPath("/iitp.png"),
       alt: "IIT Patna Logo"
     },
     {
       name: "Mayo Clinic", 
-      src: "/MC.jpeg",
+      src: getAssetPath("/MC.jpeg"),
       alt: "Mayo Clinic Logo"
     },
     {
       name: "SpringML",
-      src: "/springML.png", 
+      src: getAssetPath("/springML.png"), 
       alt: "SpringML Logo"
     },
     {
       name: "The University of Arizona",
-      src: "/uofa.png",
+      src: getAssetPath("/uofa.png"),
       alt: "University of Arizona Logo"
     }
   ];

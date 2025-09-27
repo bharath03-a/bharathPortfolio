@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import ProjectModal from '@/components/ProjectModal';
 import { useNavigate } from 'react-router-dom';
+import { getAssetPath } from '@/utils/pathUtils';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -24,7 +25,7 @@ const Projects = () => {
       features: ["Real-time data extraction", "Scalable processing with Apache Beam", "Advanced NLP topic modeling", "BigQuery integration", "Content categorization", "Metadata processing"],
       challenges: "Handling large-scale streaming data while maintaining real-time processing capabilities and ensuring accurate topic classification with complex YouTube metadata.",
       solution: "Implemented a distributed processing architecture using Apache Beam with optimized batch processing and efficient topic modeling algorithms for scalable content analysis.",
-      image: "/Real-Time YouTube Data Pipeline.png"
+      image: getAssetPath("/Real-Time YouTube Data Pipeline.png")
     },
     {
       id: 'real-time-analytics',
@@ -37,7 +38,7 @@ const Projects = () => {
       features: ["Real-time data streaming", "API integration", "Interactive dashboards", "Music analytics", "Trend analysis", "Performance monitoring"],
       challenges: "Managing real-time data streams while providing interactive analytics and maintaining system performance under high-throughput conditions.",
       solution: "Built a streaming architecture using Kafka and Spark Streaming with real-time dashboard updates and efficient data processing pipelines.",
-      image: "/Streaming Data Analytics and Visualization.png"
+      image: getAssetPath("/Streaming Data Analytics and Visualization.png")
     },
     {
       id: 'ocr2latex',
@@ -50,7 +51,7 @@ const Projects = () => {
       features: ["OCR integration", "LaTeX generation", "Mathematical formula recognition", "Table extraction", "Streamlit interface", "AI-powered conversion"],
       challenges: "Accurately recognizing complex mathematical notation and table structures from images while maintaining proper LaTeX formatting.",
       solution: "Implemented a RAG-powered system combining OCR with AI models specifically trained on mathematical content for high-accuracy conversion.",
-      image: "/RAG-powered OCR2LaTeX.png"
+      image: getAssetPath("/RAG-powered OCR2LaTeX.png")
     },
     {
       id: 'ecommerce-segmentation',
@@ -63,7 +64,7 @@ const Projects = () => {
       features: ["Customer segmentation", "Behavioral pattern analysis", "Transaction analysis", "Marketing insights", "Retention modeling", "Revenue optimization"],
       challenges: "Processing large volumes of transactional data while identifying meaningful customer segments for business strategy optimization.",
       solution: "Applied advanced clustering algorithms and statistical analysis techniques to segment customers based on purchasing behavior, frequency, and monetary value.",
-      image: "/E-Commerce Customer Segmentation & Behavior Analysis.png"
+      image: getAssetPath("/E-Commerce Customer Segmentation & Behavior Analysis.png")
     },
     {
       id: 'deforestation-analysis',
@@ -76,7 +77,7 @@ const Projects = () => {
       features: ["Environmental data analysis", "Geospatial visualization", "Trend analysis", "Statistical modeling", "Conservation insights", "Agricultural impact assessment"],
       challenges: "Integrating diverse environmental datasets while establishing clear correlations between agricultural practices and deforestation rates.",
       solution: "Utilized R for statistical analysis and geospatial mapping to visualize deforestation trends and quantify the relationship between soybean cultivation and forest loss.",
-      image: "/Forests in Transition.png"
+      image: getAssetPath("/Forests in Transition.png")
     },
     {
       id: 'flight-crash-analysis',
@@ -89,7 +90,7 @@ const Projects = () => {
       features: ["Aviation safety analysis", "Crash pattern identification", "Statistical visualization", "Risk assessment", "Safety trend analysis", "Cause correlation"],
       challenges: "Processing sensitive aviation data while extracting meaningful insights for safety improvement without compromising data integrity.",
       solution: "Applied statistical analysis and visualization techniques to identify key safety factors and trends, providing actionable insights for aviation safety enhancement.",
-      image: "/Flight Crash Analysis.png"
+      image: getAssetPath("/Flight Crash Analysis.png")
     },
     {
       id: 'realtime-reel-buzz',
@@ -102,7 +103,7 @@ const Projects = () => {
       features: ["Real-time event processing", "Stateful stream processing", "Event-time logic", "BigQuery integration", "Scalable streaming", "Session-based analytics"],
       challenges: "Processing high-volume real-time events while maintaining state and ensuring accurate event-time processing for social media analytics.",
       solution: "Implemented a robust streaming pipeline using Scio and Apache Beam with state management, timers, and event-time processing to handle 10K+ events per minute.",
-      image: "/placeholder.svg"
+      image: getAssetPath("/placeholder.svg")
     },
     {
       id: 'legal-chatbot',
@@ -115,7 +116,7 @@ const Projects = () => {
       features: ["Legal document analysis", "AI-powered consultation", "Legal advice generation", "Document processing", "Natural language understanding", "Legal domain expertise"],
       challenges: "Providing accurate legal advice while ensuring compliance with legal standards and handling complex legal document analysis.",
       solution: "Developed an AI system with specialized legal domain knowledge and NLP capabilities to provide accurate legal assistance and document analysis.",
-      image: "/placeholder.svg"
+      image: getAssetPath("/placeholder.svg")
     },
     {
       id: 'medstruct',
@@ -128,7 +129,7 @@ const Projects = () => {
       features: ["Medical document structuring", "Healthcare data processing", "Medical text analysis", "Document transformation", "Healthcare insights", "Medical NLP"],
       challenges: "Processing complex medical documents and extracting structured information while maintaining medical accuracy and compliance.",
       solution: "Implemented specialized medical NLP techniques and healthcare domain knowledge to accurately structure and analyze medical documents.",
-      image: "/placeholder.svg"
+      image: getAssetPath("/placeholder.svg")
     },
     {
       id: 'medicare-fraud-detection',
@@ -141,7 +142,7 @@ const Projects = () => {
       features: ["Fraud detection", "Pattern recognition", "Healthcare analytics", "Statistical analysis", "Risk assessment", "Claims analysis"],
       challenges: "Identifying fraudulent patterns in large-scale healthcare claims data while minimizing false positives and ensuring accuracy.",
       solution: "Developed advanced machine learning models with pattern recognition capabilities to accurately detect fraudulent Medicare claims and suspicious activities.",
-      image: "/placeholder.svg"
+      image: getAssetPath("/placeholder.svg")
     },
     {
       id: 'amazon-consumer-analysis',
@@ -154,7 +155,7 @@ const Projects = () => {
       features: ["Consumer behavior analysis", "Statistical modeling", "Data visualization", "Customer insights", "Business optimization", "Pattern recognition"],
       challenges: "Processing large-scale consumer data while identifying actionable insights for business strategy and customer experience improvement.",
       solution: "Applied advanced statistical analysis and visualization techniques using R and Quarto to uncover meaningful patterns in Amazon consumer behavior data.",
-      image: "/Amazon Consumer Behavior.png"
+      image: getAssetPath("/Amazon Consumer Behavior.png")
     },
     {
       id: 'crime-data-analysis',
@@ -167,7 +168,7 @@ const Projects = () => {
       features: ["Big data processing", "Predictive modeling", "Geographic analysis", "Pattern recognition", "Statistical forecasting", "Crime hotspot identification"],
       challenges: "Processing massive datasets with complex relationships while ensuring model accuracy and interpretability for law enforcement applications.",
       solution: "Utilized Apache Spark for distributed processing and ensemble methods for robust predictive modeling with comprehensive feature engineering and geographic clustering.",
-      image: "/Large-Scale Crime Data Analysis and Predictive Modeling.png"
+      image: getAssetPath("/Large-Scale Crime Data Analysis and Predictive Modeling.png")
     },
     {
       id: 'nyc-transportation',
@@ -180,7 +181,7 @@ const Projects = () => {
       features: ["Transportation analytics", "Recovery trend analysis", "Ridership visualization", "Service optimization", "Resource planning", "Performance metrics"],
       challenges: "Analyzing complex transportation data while accounting for pandemic-related disruptions and changing commuter patterns.",
       solution: "Created comprehensive Tableau dashboards to visualize ridership recovery patterns and provide actionable insights for transportation planning and resource allocation.",
-      image: "/Analyzing NYC Transportation Recovery.png"
+      image: getAssetPath("/Analyzing NYC Transportation Recovery.png")
     },
     {
       id: 'testcase-ai',
@@ -193,7 +194,7 @@ const Projects = () => {
       features: ["AI-powered requirement extraction", "Compliance mapping", "Comprehensive test generation", "Quality validation", "Session memory", "LangGraph workflow"],
       challenges: "Converting complex healthcare requirements into compliant test cases while ensuring traceability and meeting regulatory standards.",
       solution: "Implemented a multi-step LangGraph workflow with conditional routing, error handling, and specialized healthcare domain knowledge.",
-      image: "/placeholder.svg"
+      image: getAssetPath("/placeholder.svg")
     },
     {
       id: 'image-recognition',
@@ -206,7 +207,7 @@ const Projects = () => {
       features: ["Multi-label classification", "CNN architecture", "Face attribute detection", "High accuracy prediction", "Feature extraction", "Model optimization"],
       challenges: "Achieving high accuracy in multi-label classification while managing computational complexity and preventing overfitting in facial recognition tasks.",
       solution: "Developed a custom CNN architecture with attention mechanisms and data augmentation techniques for improved performance and robust feature learning.",
-      image: "/Multi-Label Image Recognition and Attribute Prediction.png"
+      image: getAssetPath("/Multi-Label Image Recognition and Attribute Prediction.png")
     },
     {
       id: 'ai-interview-coach',
@@ -219,7 +220,7 @@ const Projects = () => {
       features: ["Voice recognition", "AI-powered feedback", "Interview simulation", "Performance analytics", "Personalized coaching", "Real-time interaction"],
       challenges: "Creating natural voice interactions while providing meaningful feedback on interview performance and communication skills.",
       solution: "Integrated advanced NLP models with voice recognition technology to create an interactive coaching experience with real-time feedback mechanisms.",
-      image: "/Al Interview Coach.png"
+      image: getAssetPath("/Al Interview Coach.png")
     },
     {
       id: 'social-media-disaster',
@@ -232,7 +233,7 @@ const Projects = () => {
       features: ["Text classification", "Disaster detection", "Social media monitoring", "Emergency response", "Sentiment analysis", "Real-time processing"],
       challenges: "Accurately classifying diverse social media content while handling informal language, slang, and varying disaster contexts.",
       solution: "Implemented advanced NLP models with custom preprocessing pipelines to handle social media text variations and achieve high classification accuracy.",
-      image: "/Social Media Disaster Classification.png"
+      image: getAssetPath("/Social Media Disaster Classification.png")
     },
     {
       id: 'sales-forecasting',
@@ -245,7 +246,7 @@ const Projects = () => {
       features: ["Time series analysis", "Sales forecasting", "Statistical modeling", "Trend analysis", "Seasonal patterns", "Business intelligence"],
       challenges: "Accurately forecasting sales while accounting for seasonal variations, trends, and external factors affecting retail performance.",
       solution: "Combined multiple regression techniques with comprehensive feature engineering to create robust forecasting models for retail sales prediction.",
-      image: "/Store Sales Time Series Forecasting.png"
+      image: getAssetPath("/Store Sales Time Series Forecasting.png")
     },
     {
       id: 'house-price-prediction',
@@ -258,7 +259,7 @@ const Projects = () => {
       features: ["Advanced regression modeling", "Feature engineering", "Model blending", "Hyperparameter optimization", "Price prediction", "Real estate analytics"],
       challenges: "Handling complex real estate data with multiple features while ensuring model accuracy and preventing overfitting.",
       solution: "Implemented ensemble methods combining Ridge Regression and LightGBM with sophisticated feature engineering techniques for optimal price prediction accuracy.",
-      image: "/Intelligent House Price Prediction.png"
+      image: getAssetPath("/Intelligent House Price Prediction.png")
     },
     {
       id: 'ecommerce-behavior',
@@ -271,7 +272,7 @@ const Projects = () => {
       features: ["Customer segmentation", "Behavior analysis", "Purchase prediction", "Churn modeling", "RFM analysis", "Marketing optimization"],
       challenges: "Identifying meaningful customer segments while handling diverse purchase patterns and seasonal variations.",
       solution: "Applied clustering algorithms and predictive models with comprehensive feature engineering for actionable customer insights.",
-      image: "/E-Commerce Customer Segmentation & Behavior Analysis.png"
+      image: getAssetPath("/E-Commerce Customer Segmentation & Behavior Analysis.png")
     },
     {
       id: 'purchase-prediction',
@@ -284,7 +285,7 @@ const Projects = () => {
       features: ["Machine learning pipeline", "Purchase prediction", "Recommendation system", "Feature engineering", "Model optimization", "Behavioral analysis"],
       challenges: "Processing large-scale transactional data while building accurate predictive models for complex customer purchasing patterns.",
       solution: "Utilized ensemble methods combining XGBoost and LightGBM with advanced feature engineering to create robust predictive models.",
-      image: "/E-Commerce Purchase Behavior Prediction.png"
+      image: getAssetPath("/E-Commerce Purchase Behavior Prediction.png")
     }
   ];
 

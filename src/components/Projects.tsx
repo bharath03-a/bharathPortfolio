@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import ProjectModal from './ProjectModal';
 import { useNavigate } from 'react-router-dom';
+import { getAssetPath } from '@/utils/pathUtils';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -21,7 +22,7 @@ const Projects = () => {
       features: ["Big data processing", "Predictive modeling", "Geographic analysis", "Pattern recognition", "Statistical forecasting", "Crime hotspot identification"],
       challenges: "Processing massive datasets with complex relationships while ensuring model accuracy and interpretability for law enforcement applications.",
       solution: "Utilized Apache Spark for distributed processing and ensemble methods for robust predictive modeling with comprehensive feature engineering and geographic clustering.",
-      image: "/Large-Scale Crime Data Analysis and Predictive Modeling.png"
+      image: getAssetPath("/Large-Scale Crime Data Analysis and Predictive Modeling.png")
     },
     {
       id: 'testcase-ai',
@@ -34,7 +35,7 @@ const Projects = () => {
       features: ["AI-powered requirement extraction", "Compliance mapping", "Comprehensive test generation", "Quality validation", "Session memory", "LangGraph workflow", "Healthcare domain knowledge"],
       challenges: "Converting complex healthcare requirements into compliant test cases while ensuring traceability and meeting regulatory standards.",
       solution: "Implemented a multi-step LangGraph workflow with conditional routing, error handling, and specialized healthcare domain knowledge to generate comprehensive, compliant test cases.",
-      image: "/placeholder.svg"
+      image: getAssetPath("/placeholder.svg")
     },
     {
       id: 'image-recognition',
@@ -47,7 +48,7 @@ const Projects = () => {
       features: ["Multi-label classification", "CNN architecture", "Face attribute detection", "High accuracy prediction", "Feature extraction", "Model optimization"],
       challenges: "Achieving high accuracy in multi-label classification while managing computational complexity and preventing overfitting in facial recognition tasks.",
       solution: "Developed a custom CNN architecture with attention mechanisms and data augmentation techniques for improved performance and robust feature learning.",
-      image: "/Multi-Label Image Recognition and Attribute Prediction.png"
+      image: getAssetPath("/Multi-Label Image Recognition and Attribute Prediction.png")
     },
     {
       id: 'real-time-analytics',
@@ -60,7 +61,7 @@ const Projects = () => {
       features: ["Real-time data streaming", "API integration", "Interactive dashboards", "Music analytics", "Trend analysis", "Performance monitoring"],
       challenges: "Managing real-time data streams while providing interactive analytics and maintaining system performance under high-throughput conditions.",
       solution: "Built a streaming architecture using Kafka and Spark Streaming with real-time dashboard updates and efficient data processing pipelines.",
-      image: "/Streaming Data Analytics and Visualization.png"
+      image: getAssetPath("/Streaming Data Analytics and Visualization.png")
     }
   ];
 
