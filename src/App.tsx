@@ -36,7 +36,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/bharathPortfolio">
           <div className="min-h-screen font-styrene dotted-grid">
             <Routes>
               <Route path="/" element={<Index />} />
