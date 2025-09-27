@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import ExperienceModal from './ExperienceModal';
 import EducationModal from './EducationModal';
 import { Card, CardContent } from '@/components/ui/card';
+import { getAssetPath } from '@/utils/pathUtils';
 
 const About = () => {
   const [selectedExperience, setSelectedExperience] = useState<any>(null);
@@ -14,7 +15,7 @@ const About = () => {
       company: "Centauri Health Solutions",
       role: "Data Ops Engineer II",
       period: "Jul 2025 - Present",
-      image: "/chs.png",
+      image: getAssetPath("/chs.png"),
       details: "Transformed 1M+ patient C-CDA documents into structured data via a scalable GCP ETL pipeline (Apache Beam, MedSpaCy, Gemini) and created embeddings using BigQueryML to enable advanced semantic search and analytics.",
       technologies: ["Python", "Apache Beam", "MedSpaCy", "Gemini", "BigQuery", "BigQueryML", "GCP", "ETL", "C-CDA", "Semantic Search"],
       achievements: [
@@ -27,7 +28,7 @@ const About = () => {
       company: "Mayo Clinic",
       role: "Data Science Intern (Biostatistics)",
       period: "May 2024 - May 2025",
-      image: "/MC.jpeg",
+      image: getAssetPath("/MC.jpeg"),
       details: "Developed MedSpaCy, an open-source NLP tool with 4 modules for clinical text analysis, and built an NLP pipeline converting two semi-structured input formats into structured outputs, cutting clinical note review time by 90%. Engineered domain-specific, rule-based NLP modules like entity recognition, section detection with MedSpaCy, and implemented ConText algorithm with five contextual flags, improving entity and section detection accuracy by 35%.",
       technologies: ["Python", "MedSpaCy", "NLP", "Clinical Text Analysis", "ConText Algorithm", "Entity Recognition", "Section Detection", "Rule-based NLP", "Open-source"],
       achievements: [
@@ -41,7 +42,7 @@ const About = () => {
       company: "HSBC",
       role: "Data Engineer",
       period: "Jan 2023 - Aug 2023",
-      image: "/hsbc.png",
+      image: getAssetPath("/hsbc.png"),
       details: "Migrated mainframe-based corporate card transaction pipelines (1M+ weekly records) to GCP using Control-M, Compute Engine, BigQuery, PostgreSQL reducing pipeline execution time by 35% and ensuring zero data loss. Guided and resolved 50+ data integrity issues using SQL query optimizations, collaborating with upstream and downstream teams and leveraging SQL on BigQuery to improve data consistency by 100% and ensure compliance. Created ETL workflows using Spark on Google Cloud Dataproc, reducing processing time of real-time financial analytics by 40% and cutting costs by 25% through optimized parallel data processing, improving scalability.",
       technologies: ["GCP", "BigQuery", "PostgreSQL", "Control-M", "Compute Engine", "SQL", "ETL", "Data Migration", "Apache Spark", "Dataproc", "Mainframe", "Financial Analytics"],
       achievements: [
@@ -55,7 +56,7 @@ const About = () => {
       company: "SpringML Inc.",
       role: "Associate Data Engineer",
       period: "Jan 2021 - Dec 2022",
-      image: "/springML.png",
+      image: getAssetPath("/springML.png"),
       details: "Orchestrated ETL pipelines with Java, Apache Beam, Dataflow, and BigQuery to process 2M+ weekly health records, reducing execution time to 8 minutes, boosting workflow efficiency by 50% and ensuring full PII masking compliance. Pioneered a multi-channel communication pipeline using Python, Dataflow, Pub/Sub, Twilio, Cloud Functions, leveraging STAR schema data models to optimize outreach analytics and boost user response rates by 30%. Implemented modular, fault-tolerant ETL pipelines on GCP using Data Fusion, Airflow, and BigQuery, sourcing data from SAP IBP to automate ingestion, reducing retrieval time by 35% and improving demand forecasting accuracy. Collaborated with Google Cloud team to demo cross-project infrastructure on a shared VPC using Terraform, Cloud Run, creating reusable templates that cut deployment time by 40%, streamlined workflows, and enhanced security. Innovated a solution with Google Cloud Document AI to parse 10K+ physical reward claim documents, automating key information extraction and cutting manual review time by 50%.",
       technologies: ["Java", "Apache Beam", "Dataflow", "BigQuery", "Python", "Pub/Sub", "Twilio", "Cloud Functions", "Terraform", "STAR Schema", "Data Fusion", "Airflow", "SAP IBP", "Cloud Run", "Document AI", "PII Masking", "ETL"],
       achievements: [
@@ -74,7 +75,7 @@ const About = () => {
       degree: "Master of Science in Data Science",
       period: "Aug 2023 - May 2025",
       gpa: "4.0/4.0",
-      image: "/uofa.png",
+      image: getAssetPath("/uofa.png"),
       details: "Specialized in advanced machine learning techniques, statistical modeling, and big data analytics. Conducted research in deep learning applications for healthcare and worked on multiple industry-sponsored projects. Served as Teaching Assistant for AI courses.",
       coursework: ["Data Mining", "Machine Learning", "Data Visualization", "Deep Learning", "NLP", "Big Data", "AI (Teaching Assistant)"]
     },
@@ -82,7 +83,7 @@ const About = () => {
       institution: "Indian Institute of Technology (IIT) Patna",
       degree: "Bachelor of Technology in Mechanical Engineering",
       period: "2017 - 2021",
-      image: "/iitp.png",
+      image: getAssetPath("/iitp.png"),
       details: "Developed strong analytical and mathematical foundations. Completed projects in automation, robotics, and data analysis. Active member of the coding club and participated in multiple hackathons.",
       coursework: ["Engineering Mathematics", "Thermodynamics", "Fluid Mechanics", "Control Systems", "CAD/CAM", "Materials Science", "Programming Fundamentals", "Statistics"]
     }
