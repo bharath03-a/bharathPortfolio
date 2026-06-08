@@ -13,6 +13,7 @@ import ProjectsPage from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
+  const routerBaseName = import.meta.env.PROD ? "/bharathPortfolio" : "/";
   const queryClient = useMemo(() => new QueryClient({
     defaultOptions: {
       queries: {
@@ -36,7 +37,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/bharathPortfolio">
+        <BrowserRouter basename={routerBaseName}>
           <div className="min-h-screen font-styrene dotted-grid">
             <Routes>
               <Route path="/" element={<Index />} />

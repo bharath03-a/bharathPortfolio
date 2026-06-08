@@ -89,14 +89,6 @@ const Navigation = () => {
           >
             Projects
           </button>
-          <button
-            onClick={() => navigate('/blog')}
-            className={`text-sm transition-colors duration-200 font-medium font-styrene ${
-              isCurrentPage('/blog') ? 'text-black bg-gray-600/20 px-3 py-1 rounded-full' : 'text-black hover:text-gray-600'
-            }`}
-          >
-            Blog
-          </button>
         </div>
       </div>
     </nav>

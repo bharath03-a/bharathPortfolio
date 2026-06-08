@@ -5,10 +5,31 @@ import ExperienceModal from './ExperienceModal';
 import EducationModal from './EducationModal';
 import { Card, CardContent } from '@/components/ui/card';
 import { getAssetPath } from '@/utils/pathUtils';
+import { Brain, Cpu, Database } from 'lucide-react';
+
+interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  image: string;
+  details: string;
+  technologies: string[];
+  achievements: string[];
+}
+
+interface Education {
+  institution: string;
+  degree: string;
+  period: string;
+  gpa?: string;
+  image: string;
+  details: string;
+  coursework: string[];
+}
 
 const About = () => {
-  const [selectedExperience, setSelectedExperience] = useState<any>(null);
-  const [selectedEducation, setSelectedEducation] = useState<any>(null);
+  const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null);
+  const [selectedEducation, setSelectedEducation] = useState<Education | null>(null);
 
   const experiences = [
     {
@@ -16,12 +37,13 @@ const About = () => {
       role: "Data Ops Engineer II",
       period: "Jul 2025 - Present",
       image: getAssetPath("/chs.png"),
-      details: "Transformed 1M+ patient C-CDA documents into structured data via a scalable GCP ETL pipeline (Apache Beam, MedSpaCy, Gemini) and created embeddings using BigQueryML to enable advanced semantic search and analytics.",
-      technologies: ["Python", "Apache Beam", "MedSpaCy", "Gemini", "BigQuery", "BigQueryML", "GCP", "ETL", "C-CDA", "Semantic Search"],
+      details: "Transform 1M+ patient C-CDA documents into structured data through a scalable GCP ETL pipeline using Apache Beam, MedSpaCy, and Gemini. Create embeddings with BigQueryML to enable semantic search and analytics. Process and filter 1M+ patient document pages through OCR and parsing, reducing medical coder review time by 50%.",
+      technologies: ["Python", "Apache Beam", "MedSpaCy", "Gemini", "BigQuery", "BigQueryML", "GCP", "ETL", "C-CDA", "Semantic Search", "OCR"],
       achievements: [
-        "Transformed 1M+ patient C-CDA documents into structured data via scalable GCP ETL pipeline",
-        "Created embeddings using BigQueryML to enable advanced semantic search and analytics",
-        "Built scalable pipeline using Apache Beam, MedSpaCy, and Gemini"
+        "Transform 1M+ patient C-CDA documents into structured data via scalable GCP ETL pipeline",
+        "Create embeddings using BigQueryML to enable advanced semantic search and analytics",
+        "Process and filter 1M+ patient document pages via OCR and parsing, reducing medical coder review time by 50%",
+        "Build scalable pipelines using Apache Beam, MedSpaCy, and Gemini"
       ]
     },
     {
@@ -34,7 +56,7 @@ const About = () => {
       achievements: [
         "Developed MedSpaCy, an open-source NLP tool with 4 modules for clinical text analysis",
         "Built NLP pipeline converting two semi-structured input formats into structured outputs, cutting clinical note review time by 90%",
-        "Engineered domain-specific, rule-based NLP modules like entity recognition and section detection",
+        "Engineered domain-specific, rule-based NLP modules like entity recognition and section detection with MedSpaCy",
         "Implemented ConText algorithm with five contextual flags, improving entity and section detection accuracy by 35%"
       ]
     },
@@ -89,6 +111,27 @@ const About = () => {
     }
   ];
 
+  const focusAreas = [
+    {
+      title: 'Data Engineering',
+      icon: Database,
+      summary: 'Production pipelines, batch and streaming systems, cloud warehouses, orchestration, and data quality.',
+      proof: ['GCP Dataflow', 'Apache Beam', 'Spark', 'BigQuery', 'Airflow', 'Pub/Sub'],
+    },
+    {
+      title: 'AI',
+      icon: Brain,
+      summary: 'LLM applications, RAG, clinical NLP, OCR workflows, and model-backed tools with structured outputs.',
+      proof: ['Gemini', 'MedSpaCy', 'RAG', 'LangExtract', 'FastAPI', 'Embeddings'],
+    },
+    {
+      title: 'Systems Projects',
+      icon: Cpu,
+      summary: 'Recent hands-on projects in rate limiting, DAG scheduling, async runtimes, and streaming semantics.',
+      proof: ['Rust', 'Tokio', 'gRPC', 'Redis Lua', 'Consistent Hashing', 'Scio'],
+    },
+  ];
+
   return (
     <section id="about" className="py-20 px-2 md:px-6 relative">
       <div className="max-w-7xl mx-auto relative z-10 space-y-20">
@@ -111,19 +154,39 @@ const About = () => {
 
             <div className="max-w-4xl mx-auto space-y-6 text-base md:text-lg text-slate-800 leading-relaxed font-styrene">
               <p>
-                I am Bharath Velamala, a Data Engineer and Data Scientist with over 4 years of experience in data engineering, 
-                advanced analytics, and machine learning model deployment. I specialize in building scalable ETL pipelines, 
-                NLP solutions, and cloud-based data architectures to extract insights from large-scale datasets.
+                I am Bharath Velamala, a data engineer with 4+ years of experience building cloud data pipelines, 
+                analytics platforms, and AI-enabled workflows. My strongest lane is data engineering on GCP, and I am 
+                intentionally expanding into AI systems and distributed systems through recent projects in RAG, clinical NLP, 
+                streaming analytics, Rust, and scheduling.
               </p>
               <p>
                 My expertise spans across healthcare analytics, financial data engineering, and e-commerce, where I have contributed to 
-                optimizing data pipelines and predictive modeling. I recently completed my Master of Science in Data Science at 
-                the University of Arizona with a 4.0 GPA and am currently working as a Data Ops Engineer II at Centauri Health Solutions.
+                optimizing data pipelines and predictive modeling. I completed my Master of Science in Data Science at 
+                the University of Arizona with a 4.0 GPA and am currently working as a Data Ops Engineer II at Centauri Health Solutions in Tempe, AZ.
               </p>
               <p>
-                My motivation lies in leveraging big data technologies, cloud platforms, and AI-driven analytics to drive business impact 
-                and solve complex real-world problems through data-driven solutions, particularly in healthcare and financial domains.
+                I am most interested in teams that sit close to infrastructure and intelligence: data platforms, applied AI, 
+                real-time processing, and systems that have to be correct under scale.
               </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-5 mt-12 text-left">
+              {focusAreas.map(({ title, icon: Icon, summary, proof }) => (
+                <div key={title} className="bg-white/70 border border-white/60 rounded-2xl p-5 shadow-lg">
+                  <div className="w-11 h-11 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-4">
+                    <Icon size={22} />
+                  </div>
+                  <h4 className="text-xl font-bold text-slate-900 mb-3 font-styrene">{title}</h4>
+                  <p className="text-sm text-slate-700 leading-relaxed mb-4">{summary}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {proof.map((item) => (
+                      <span key={item} className="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded-full">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Clinical AI project visual</title>
+  <desc id="desc">Clinical text being transformed into structured medication fields.</desc>
+  <rect width="1200" height="750" fill="#ecfeff"/>
+  <rect x="78" y="78" width="1044" height="594" rx="28" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+  <text x="120" y="150" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">Clinical Text to JSON</text>
+  <text x="122" y="198" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="26">Medication extraction for healthcare workflows</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="130" y="275" width="390" height="260" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="170" y="335" fill="#334155" font-size="24" font-weight="700">Clinical note</text>
+    <rect x="170" y="365" width="280" height="18" rx="9" fill="#cbd5e1"/>
+    <rect x="170" y="405" width="310" height="18" rx="9" fill="#cbd5e1"/>
+    <rect x="170" y="445" width="240" height="18" rx="9" fill="#cbd5e1"/>
+    <rect x="170" y="485" width="295" height="18" rx="9" fill="#cbd5e1"/>
+    <path d="M555 405 H665" stroke="#0891b2" stroke-width="6" stroke-linecap="round"/>
+    <path d="M642 382 L672 405 L642 428" fill="none" stroke="#0891b2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="700" y="275" width="360" height="260" rx="22" fill="#0f172a"/>
+    <text x="742" y="335" fill="#f8fafc" font-size="24" font-weight="800">{`{ medication }`}</text>
+    <text x="742" y="385" fill="#67e8f9" font-size="22">drug: metformin</text>
+    <text x="742" y="425" fill="#a7f3d0" font-size="22">dose: 500 mg</text>
+    <text x="742" y="465" fill="#fde68a" font-size="22">route: oral</text>
+    <text x="742" y="505" fill="#f0abfc" font-size="22">frequency: bid</text>
+  </g>
+  <g fill="#cffafe" stroke="#67e8f9">
+    <rect x="170" y="585" width="160" height="48" rx="10"/>
+    <rect x="355" y="585" width="160" height="48" rx="10"/>
+    <rect x="540" y="585" width="160" height="48" rx="10"/>
+    <rect x="725" y="585" width="160" height="48" rx="10"/>
+  </g>
+  <g fill="#155e75" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">
+    <text x="207" y="616">Gemini</text>
+    <text x="392" y="616">Flask</text>
+    <text x="577" y="616">JSON</text>
+    <text x="762" y="616">NLP</text>
+  </g>
+</svg>

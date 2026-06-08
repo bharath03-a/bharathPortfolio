@@ -27,7 +27,7 @@ const ContactFooter = () => {
             </div>
             <div className="flex items-center gap-2 text-gray-600">
               <MapPin size={20} />
-              <span>Rochester, MN, USA</span>
+              <span>Tempe, AZ, USA</span>
             </div>
           </div>
         </div>

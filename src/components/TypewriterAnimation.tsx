@@ -1,8 +1,9 @@
 
 import { useState, useEffect } from 'react';
 
+const roles = ['Data Engineer', 'AI Engineer'];
+
 const TypewriterAnimation = () => {
-  const roles = ['Engineer', 'Scientist', 'Analyst'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [animatedLetters, setAnimatedLetters] = useState(0);
 
@@ -22,15 +23,12 @@ const TypewriterAnimation = () => {
       }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [animatedLetters, currentRoleIndex, roles]);
+  }, [animatedLetters, currentRoleIndex]);
 
   const currentRole = roles[currentRoleIndex];
 
   return (
     <div className="text-gray-800 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center lg:justify-start gap-3 flex-wrap">
-      <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-        Data
-      </span>
       <span className="relative">
         <span className="text-gray-900 font-black tracking-tight">
           {currentRole.split('').map((letter, index) => (
@@ -45,7 +43,7 @@ const TypewriterAnimation = () => {
                 transitionDelay: `${index * 50}ms`,
               }}
             >
-              {letter}
+              {letter === ' ' ? '\u00A0' : letter}
             </span>
           ))}
         </span>

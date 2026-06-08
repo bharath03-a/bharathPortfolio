@@ -1,5 +1,5 @@
 
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Cpu, Database, Download, ExternalLink, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TypewriterAnimation from './TypewriterAnimation';
 import { getAssetPath } from '@/utils/pathUtils';
@@ -11,6 +11,12 @@ const Hero = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const focusAreas = [
+    { label: 'Data Engineering', icon: Database },
+    { label: 'AI Engineering', icon: Sparkles },
+    { label: 'Systems Projects', icon: Cpu },
+  ];
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 md:px-6 py-10 md:py-20 relative overflow-hidden">
@@ -49,14 +55,22 @@ const Hero = () => {
                   </div>
                   <div className="animate-fade-in delay-700">
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-3xl leading-relaxed font-styrene mt-6 mx-auto lg:mx-0 font-light tracking-wide">
-                      <span className="font-medium text-gray-900">Data Engineer</span> and{' '}
-                      <span className="font-medium text-gray-900">Data Scientist</span> with over{' '}
-                      <span className="font-semibold text-black">2 years</span> of experience in data engineering, 
-                      advanced analytics, and machine learning model deployment. Specialized in building{' '}
-                      <span className="font-medium text-gray-900">scalable ETL pipelines</span>,{' '}
-                      <span className="font-medium text-gray-900">NLP solutions</span>, and{' '}
-                      <span className="font-medium text-gray-900">cloud-based data architectures</span>.
+                      I build <span className="font-medium text-gray-900">cloud data platforms</span>,{' '}
+                      <span className="font-medium text-gray-900">AI-powered workflows</span>, and increasingly{' '}
+                      <span className="font-medium text-gray-900">distributed systems</span>. My work spans GCP, Beam,
+                      Spark, BigQuery, clinical NLP, RAG, and systems projects in Rust.
                     </p>
+                  </div>
+                  <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start animate-fade-in delay-700">
+                    {focusAreas.map(({ label, icon: Icon }) => (
+                      <span
+                        key={label}
+                        className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-medium text-slate-800 shadow-sm"
+                      >
+                        <Icon size={16} />
+                        {label}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 
@@ -79,23 +93,46 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Enhanced buttons with modern styling */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-8 justify-center lg:justify-start animate-fade-in delay-1000">
-              <Button
-                onClick={() => scrollToSection('projects')}
-                className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 w-full sm:w-auto font-styrene font-medium text-lg group shadow-lg hover:shadow-xl transform hover:scale-105"
+            <div className="grid gap-5 lg:grid-cols-[1fr_16rem] lg:items-center animate-fade-in delay-1000">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  onClick={() => scrollToSection('projects')}
+                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 w-full sm:w-auto font-styrene font-medium text-lg group shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  View My Work
+                  <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => window.open('https://drive.google.com/file/d/1Pnl2m432A6jF5PL4x3nZw1TQ2TU7bsEN/view?usp=sharing', '_blank')}
+                  className="border-2 border-black/20 hover:border-black hover:bg-black hover:text-white text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 w-full sm:w-auto font-styrene font-medium text-lg group shadow-lg hover:shadow-xl transform hover:scale-105 bg-white/50 backdrop-blur-sm"
+                >
+                  <Download size={20} className="transition-transform duration-300 group-hover:scale-110" />
+                  Download Resume
+                </Button>
+              </div>
+
+              <a
+                href="https://github.com/bharath03-a/GitCortex"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl border border-slate-200 bg-white/80 px-5 py-4 text-left shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300"
               >
-                View My Work
-                <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => window.open('https://drive.google.com/file/d/1Pnl2m432A6jF5PL4x3nZw1TQ2TU7bsEN/view?usp=sharing', '_blank')}
-                className="border-2 border-black/20 hover:border-black hover:bg-black hover:text-white text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 w-full sm:w-auto font-styrene font-medium text-lg group shadow-lg hover:shadow-xl transform hover:scale-105 bg-white/50 backdrop-blur-sm"
-              >
-                <Download size={20} className="transition-transform duration-300 group-hover:scale-110" />
-                Download Resume
-              </Button>
+                <span className="block text-[11px] font-semibold uppercase tracking-wide text-emerald-700">
+                  Currently working on
+                </span>
+                <span className="mt-2 flex items-center justify-between gap-3">
+                  <img
+                    src={getAssetPath('/gitcortex-logo-wordmark.svg')}
+                    alt="GitCortex"
+                    className="h-11 w-auto max-w-[190px]"
+                  />
+                  <ExternalLink size={22} className="text-slate-500 flex-shrink-0" />
+                </span>
+                <span className="mt-3 block text-xs font-medium leading-relaxed text-slate-600">
+                  Code graph · Git-aware · MCP-ready · Local-first
+                </span>
+              </a>
             </div>
           </div>
         </div>

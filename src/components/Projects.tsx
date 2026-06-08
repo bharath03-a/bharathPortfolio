@@ -1,71 +1,16 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Database, Brain, BarChart3, Zap, TrendingUp, Building2, LineChart } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import ProjectModal from './ProjectModal';
 import { useNavigate } from 'react-router-dom';
-import { getAssetPath } from '@/utils/pathUtils';
+import { featuredProjects, type PortfolioProject } from '@/data/projects';
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
   const navigate = useNavigate();
 
-  const projects = [
-    {
-      id: 'crime-data-analysis',
-      title: "Crime Data Analysis",
-      description: "Predictive modeling for U.S. gun violence pattern analysis",
-      icon: BarChart3,
-      category: "Data Analytics",
-      tech: ["Python", "ML", "Spark", "Statistical Analysis", "Pattern Recognition"],
-      fullDescription: "Analyzed large-scale crime datasets to identify patterns in gun violence across the United States, developing predictive models to forecast crime hotspots and trends using advanced statistical methods.",
-      features: ["Big data processing", "Predictive modeling", "Geographic analysis", "Pattern recognition", "Statistical forecasting", "Crime hotspot identification"],
-      challenges: "Processing massive datasets with complex relationships while ensuring model accuracy and interpretability for law enforcement applications.",
-      solution: "Utilized Apache Spark for distributed processing and ensemble methods for robust predictive modeling with comprehensive feature engineering and geographic clustering.",
-      image: getAssetPath("/Large-Scale Crime Data Analysis and Predictive Modeling.png")
-    },
-    {
-      id: 'testcase-ai',
-      title: "TestCase AI",
-      description: "AI-powered healthcare test case generation using LangGraph and Google Gemini",
-      icon: Brain,
-      category: "AI",
-      tech: ["Python", "LangGraph", "Google Gemini", "Healthcare Compliance", "FDA", "HIPAA"],
-      fullDescription: "An AI-powered system that automatically converts healthcare software requirements into compliant, traceable test cases using LangGraph and Google Gemini models. Features AI-powered requirement extraction, compliance mapping to healthcare standards, and comprehensive test generation.",
-      features: ["AI-powered requirement extraction", "Compliance mapping", "Comprehensive test generation", "Quality validation", "Session memory", "LangGraph workflow", "Healthcare domain knowledge"],
-      challenges: "Converting complex healthcare requirements into compliant test cases while ensuring traceability and meeting regulatory standards.",
-      solution: "Implemented a multi-step LangGraph workflow with conditional routing, error handling, and specialized healthcare domain knowledge to generate comprehensive, compliant test cases.",
-      image: getAssetPath("/placeholder.svg")
-    },
-    {
-      id: 'image-recognition',
-      title: "Image Recognition",
-      description: "Multi-label face attribute prediction using deep learning",
-      icon: Brain,
-      category: "AI",
-      tech: ["TensorFlow", "Computer Vision", "Deep Learning", "CNN", "Multi-label Classification"],
-      fullDescription: "Implemented a deep learning project for face attribute prediction using convolutional neural networks with multi-label classification capabilities for accurate facial feature detection.",
-      features: ["Multi-label classification", "CNN architecture", "Face attribute detection", "High accuracy prediction", "Feature extraction", "Model optimization"],
-      challenges: "Achieving high accuracy in multi-label classification while managing computational complexity and preventing overfitting in facial recognition tasks.",
-      solution: "Developed a custom CNN architecture with attention mechanisms and data augmentation techniques for improved performance and robust feature learning.",
-      image: getAssetPath("/Multi-Label Image Recognition and Attribute Prediction.png")
-    },
-    {
-      id: 'real-time-analytics',
-      title: "Real-time Analytics Pipeline",
-      description: "Real-time Spotify data processing and visualization platform",
-      icon: Zap,
-      category: "Data Engineering",
-      tech: ["Kafka", "Spark", "API", "Real-time Processing", "Music Analytics"],
-      fullDescription: "Leveraged the Spotify Web API to extract, process, and warehouse music data for real-time analytics and visualization, providing insights into music trends and user behavior.",
-      features: ["Real-time data streaming", "API integration", "Interactive dashboards", "Music analytics", "Trend analysis", "Performance monitoring"],
-      challenges: "Managing real-time data streams while providing interactive analytics and maintaining system performance under high-throughput conditions.",
-      solution: "Built a streaming architecture using Kafka and Spark Streaming with real-time dashboard updates and efficient data processing pipelines.",
-      image: getAssetPath("/Streaming Data Analytics and Visualization.png")
-    }
-  ];
-
-  const handleProjectClick = (project) => {
+  const handleProjectClick = (project: PortfolioProject) => {
     setSelectedProject(project);
   };
 
@@ -102,14 +47,13 @@ const Projects = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-slate-900 via-zinc-400 to-gray-800 rounded-full mx-auto mt-4"></div>
             </div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-light">
-              A showcase of data engineering, machine learning, and analytics projects
+              Recent work across data platforms, AI applications, and distributed systems.
             </p>
           </div>
 
           {/* Enhanced project grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {projects.map((project, index) => {
-              const IconComponent = project.icon;
+            {featuredProjects.map((project, index) => {
               return (
                 <div
                   key={index}
@@ -118,25 +62,21 @@ const Projects = () => {
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <Card className="group-hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-105 cursor-pointer h-full bg-white/70 backdrop-blur-md border border-white/50">
-                    {/* Enhanced project image/icon area */}
-                    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50/90 to-slate-100/90 relative overflow-hidden flex items-center justify-center p-8">
+                    <div className="aspect-[16/10] bg-gradient-to-br from-slate-50/90 to-slate-100/90 relative overflow-hidden">
                       {project.image && (
                         <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
                       )}
-                      <div className="relative z-10">
-                        <div className="w-16 h-16 rounded-2xl bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg border border-white/60 mb-4">
-                          <IconComponent size={28} className="text-slate-700" />
-                        </div>
-                        <div className="text-center">
-                          <span className="inline-block px-3 py-1 bg-white/70 text-slate-600 text-xs rounded-full font-medium border border-white/50">
-                            {project.category}
+                      <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2">
+                        <span className="inline-block px-3 py-1 bg-white/85 text-slate-700 text-xs rounded-full font-medium border border-white/70 shadow-sm">
+                          {project.category}
+                        </span>
+                        {project.status && (
+                          <span className="inline-block px-3 py-1 bg-emerald-100/90 text-emerald-800 text-xs rounded-full font-semibold border border-emerald-200 shadow-sm">
+                            {project.status}
                           </span>
-                        </div>
+                        )}
                       </div>
-                      {/* Animated background elements */}
-                      <div className="absolute top-4 right-4 w-8 h-8 bg-blue-400/20 rounded-full animate-pulse"></div>
-                      <div className="absolute bottom-4 left-4 w-6 h-6 bg-purple-400/20 rounded-full animate-pulse delay-1000"></div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/5 transition-colors duration-300" />
                     </div>
 
                     <CardContent className="p-6">

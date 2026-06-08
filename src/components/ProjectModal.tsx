@@ -1,22 +1,11 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, X } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
+import type { PortfolioProject } from '@/data/projects';
 
 interface ProjectModalProps {
-  project: {
-    id: string;
-    title: string;
-    description: string;
-    fullDescription: string;
-    category: string;
-    tech: string[];
-    features: string[];
-    challenges: string;
-    solution: string;
-    icon: React.ComponentType<any>;
-    image?: string;
-  };
+  project: PortfolioProject;
   onClose: () => void;
 }
 
@@ -35,9 +24,16 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <DialogTitle className="text-2xl font-bold text-slate-900 mb-2">
                 {project.title}
               </DialogTitle>
-              <Badge variant="secondary" className="bg-slate-100 text-slate-700">
-                {project.category}
-              </Badge>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="secondary" className="bg-slate-100 text-slate-700">
+                  {project.category}
+                </Badge>
+                {project.status && (
+                  <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100">
+                    {project.status}
+                  </Badge>
+                )}
+              </div>
             </div>
           </div>
         </DialogHeader>
@@ -97,14 +93,25 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           </div>
 
           <div className="flex gap-3 pt-4 border-t">
-            <Button className="bg-slate-900 hover:bg-slate-800 text-white">
-              <ExternalLink size={16} className="mr-2" />
-              View Live
-            </Button>
-            <Button variant="outline" className="border-slate-300 hover:bg-slate-50">
-              <Github size={16} className="mr-2" />
-              View Code
-            </Button>
+            {project.liveUrl && (
+              <Button
+                className="bg-slate-900 hover:bg-slate-800 text-white"
+                onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
+              >
+                <ExternalLink size={16} className="mr-2" />
+                {project.liveLabel ?? 'View Live'}
+              </Button>
+            )}
+            {project.github && (
+              <Button
+                variant="outline"
+                className="border-slate-300 hover:bg-slate-50"
+                onClick={() => window.open(project.github, '_blank', 'noopener,noreferrer')}
+              >
+                <Github size={16} className="mr-2" />
+                View Code
+              </Button>
+            )}
           </div>
         </div>
       </DialogContent>
