@@ -1,22 +1,21 @@
-
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import SkillsMarquee from '@/components/SkillsMarquee';
 import Projects from '@/components/Projects';
+import Now from '@/components/Now';
 import About from '@/components/About';
-import SocialIsland from '@/components/SocialIsland';
+import WritingTeaser from '@/components/WritingTeaser';
 import ContactFooter from '@/components/ContactFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-paper">
       <Navigation />
       <Hero />
-      <SkillsMarquee />
       <Projects />
+      <Now />
       <About />
+      <WritingTeaser />
       <ContactFooter />
-      <SocialIsland />
     </div>
   );
 };

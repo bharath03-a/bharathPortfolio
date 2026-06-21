@@ -1,4 +1,3 @@
-
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface ExperienceModalProps {
@@ -8,7 +7,6 @@ interface ExperienceModalProps {
     company: string;
     role: string;
     period: string;
-    description: string;
     details: string;
     technologies: string[];
     achievements: string[];
@@ -18,42 +16,32 @@ interface ExperienceModalProps {
 const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl w-[50vw] h-[50vh] bg-white/90 backdrop-blur-md border border-gray-200 overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-black font-styrene">
-            {experience.role} at {experience.company}
+      <DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto border-rule bg-paper p-8">
+        <DialogHeader className="space-y-2 text-left">
+          <p className="eyebrow">{experience.period}</p>
+          <DialogTitle className="font-display text-2xl font-normal tracking-tight text-ink">
+            {experience.role}, {experience.company}
           </DialogTitle>
         </DialogHeader>
-        
-        <div className="space-y-6 mt-4">
+
+        <div className="mt-6 space-y-8">
+          <p className="text-[15px] leading-relaxed text-ink-soft">{experience.details}</p>
+
           <div>
-            <p className="text-black font-medium">{experience.period}</p>
-            <p className="text-black mt-2">{experience.description}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-black mb-2">Additional Details</h4>
-            <p className="text-black">{experience.details}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-black mb-2">Technologies Used</h4>
-            <div className="flex flex-wrap gap-2">
-              {experience.technologies.map((tech, index) => (
-                <span key={index} className="bg-gray-100 text-black px-3 py-1 rounded-full text-sm">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-black mb-2">Key Achievements</h4>
-            <ul className="list-disc list-inside space-y-1 text-black">
-              {experience.achievements.map((achievement, index) => (
-                <li key={index}>{achievement}</li>
+            <p className="eyebrow mb-4">Highlights</p>
+            <ul className="space-y-2">
+              {experience.achievements.map((a, i) => (
+                <li key={i} className="flex gap-3 text-[15px] text-ink-soft">
+                  <span className="text-accent">·</span>
+                  <span>{a}</span>
+                </li>
               ))}
             </ul>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-3">Stack</p>
+            <p className="text-[15px] text-ink">{experience.technologies.join('  ·  ')}</p>
           </div>
         </div>
       </DialogContent>

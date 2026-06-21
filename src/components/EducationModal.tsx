@@ -1,4 +1,3 @@
-
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface EducationModalProps {
@@ -8,7 +7,6 @@ interface EducationModalProps {
     institution: string;
     degree: string;
     period: string;
-    description: string;
     details: string;
     coursework: string[];
     gpa?: string;
@@ -18,37 +16,24 @@ interface EducationModalProps {
 const EducationModal = ({ isOpen, onClose, education }: EducationModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl w-[50vw] h-[50vh] bg-white/90 backdrop-blur-md border border-gray-200 overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-black font-styrene">
+      <DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto border-rule bg-paper p-8">
+        <DialogHeader className="space-y-2 text-left">
+          <p className="eyebrow">
+            {education.period}
+            {education.gpa ? ` · ${education.gpa}` : ''}
+          </p>
+          <DialogTitle className="font-display text-2xl font-normal tracking-tight text-ink">
             {education.degree}
           </DialogTitle>
+          <p className="text-[15px] text-ink-soft">{education.institution}</p>
         </DialogHeader>
-        
-        <div className="space-y-6 mt-4">
+
+        <div className="mt-6 space-y-8">
+          <p className="text-[15px] leading-relaxed text-ink-soft">{education.details}</p>
+
           <div>
-            <h4 className="font-semibold text-black">{education.institution}</h4>
-            <p className="text-black font-medium">{education.period}</p>
-            {education.gpa && (
-              <p className="text-black">GPA: {education.gpa}</p>
-            )}
-            <p className="text-black mt-2">{education.description}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-black mb-2">Additional Details</h4>
-            <p className="text-black">{education.details}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-black mb-2">Relevant Coursework</h4>
-            <div className="flex flex-wrap gap-2">
-              {education.coursework.map((course, index) => (
-                <span key={index} className="bg-gray-100 text-black px-3 py-1 rounded-full text-sm">
-                  {course}
-                </span>
-              ))}
-            </div>
+            <p className="eyebrow mb-3">Coursework</p>
+            <p className="text-[15px] text-ink">{education.coursework.join('  ·  ')}</p>
           </div>
         </div>
       </DialogContent>

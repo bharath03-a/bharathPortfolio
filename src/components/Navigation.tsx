@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Monogram from './Monogram';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,87 +8,59 @@ const Navigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const goToSection = (sectionId: string) => {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 120);
     } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const handleProjectsClick = () => {
-    navigate('/projects');
-  };
-
-  const scrollToHome = () => {
-    navigate('/');
-    setTimeout(() => {
-      const element = document.getElementById('home');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-  };
-
-  const isCurrentPage = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname === path;
-  };
-
-  const isHomeSection = location.pathname === '/';
+  const links = [
+    { label: 'work', action: () => goToSection('work') },
+    { label: 'now', action: () => goToSection('now') },
+    { label: 'writing', action: () => navigate('/blog') },
+    { label: 'about', action: () => goToSection('about') },
+  ];
 
   return (
-    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/50 backdrop-blur-md shadow-lg border-gray-400/30' : 'bg-white/20 backdrop-blur-md border-gray-400/40'
-    } border rounded-full px-6 py-1.5`}>
-      <div className="flex items-center space-x-4">
-        {/* Brand Logo */}
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        isScrolled
+          ? 'border-b border-rule bg-paper/85 backdrop-blur-sm'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3.5 md:px-8">
         <button
-          onClick={scrollToHome}
-          className="bg-gray-600/20 backdrop-blur-md border border-gray-400/40 shadow-lg rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-600/30 transition-all duration-300"
+          onClick={() => navigate('/')}
+          className="flex items-center gap-2.5"
+          aria-label="Home"
         >
-          <span className="text-lg font-bold text-black hover:text-gray-600 transition-colors duration-200 font-styrene">
-            B
+          <Monogram size={28} />
+          <span className="font-mono text-sm font-medium tracking-tight text-ink">
+            bharath.velamala
           </span>
         </button>
 
-        {/* Navigation Links */}
-        <div className="flex space-x-6">
-          <button
-            onClick={() => scrollToSection('home')}
-            className={`text-sm transition-colors duration-200 font-medium font-styrene ${
-              isHomeSection ? 'text-black bg-gray-600/20 px-3 py-1 rounded-full' : 'text-black hover:text-gray-600'
-            }`}
-          >
-            Home
-          </button>
-          <button
-            onClick={handleProjectsClick}
-            className={`text-sm transition-colors duration-200 font-medium font-styrene ${
-              isCurrentPage('/projects') ? 'text-black bg-gray-600/20 px-3 py-1 rounded-full' : 'text-black hover:text-gray-600'
-            }`}
-          >
-            Projects
-          </button>
+        <div className="flex items-center gap-5 md:gap-7">
+          {links.map(({ label, action }) => (
+            <button
+              key={label}
+              onClick={action}
+              className="link-underline font-mono text-[13px] text-ink-soft transition-colors hover:text-ink"
+            >
+              {label}
+            </button>
+          ))}
         </div>
       </div>
     </nav>

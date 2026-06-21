@@ -20,7 +20,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'styrene': ['Styrene', 'IBM Plex Sans', 'Inter', 'sans-serif'],
+				'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'ui-monospace', 'monospace'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
+				'styrene': ['Space Grotesk', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -28,6 +31,16 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				paper: {
+					DEFAULT: 'hsl(var(--paper))',
+					deep: 'hsl(var(--paper-deep))',
+				},
+				ink: {
+					DEFAULT: 'hsl(var(--ink))',
+					soft: 'hsl(var(--ink-soft))',
+					faint: 'hsl(var(--ink-faint))',
+				},
+				rule: 'hsl(var(--rule))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -46,7 +59,8 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					foreground: 'hsl(var(--accent-foreground))',
+					2: 'hsl(var(--accent-2))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -92,28 +106,18 @@ export default {
 				'fade-in': {
 					'0%': {
 						opacity: '0',
-						transform: 'translateY(20px)'
+						transform: 'translateY(14px)'
 					},
 					'100%': {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
-				},
-				'marquee': {
-					'0%': { transform: 'translateX(100%)' },
-					'100%': { transform: 'translateX(-100%)' }
-				},
-				'skills-scroll': {
-					'0%': { transform: 'translateX(0%)' },
-					'100%': { transform: 'translateX(-100%)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out',
-				'marquee': 'marquee 20s linear infinite',
-				'skills-scroll': 'skills-scroll 45s linear infinite'
+				'fade-in': 'fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both'
 			}
 		}
 	},
