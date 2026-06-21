@@ -22,7 +22,8 @@ const threads: Thread[] = [
   },
   {
     title: 'Learning ML systems',
-    note: 'Starting from the bottom. Working up through the memory hierarchy and the hardware before the frameworks.',
+    note: 'A personal lab for ML systems engineering. Writing CUDA kernels by hand and profiling them against cuBLAS on real GPUs via Modal, starting from the memory hierarchy and working up.',
+    href: 'https://github.com/bharath03-a/moe-kernel-lab',
   },
 ];
 

@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMemo } from "react";
+import BackgroundFX from "./components/BackgroundFX";
+import Loader from "./components/Loader";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -28,7 +30,9 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter basename={routerBaseName}>
-          <div className="min-h-screen bg-paper text-ink">
+          <div className="relative min-h-screen bg-paper text-ink">
+            <Loader />
+            <BackgroundFX />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/blog" element={<Blog />} />

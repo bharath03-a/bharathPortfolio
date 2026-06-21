@@ -21,7 +21,18 @@ const Hero = () => {
             <span className="text-accent"> correct under load.</span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
+          <button
+            onClick={() => scrollTo('about')}
+            className="mt-7 inline-flex items-center gap-2.5 border border-rule bg-paper-deep/40 px-4 py-2 font-mono text-[13px] transition-colors hover:border-green"
+          >
+            <span className="flex items-center gap-1.5 text-green">
+              <span className="h-1.5 w-1.5 rounded-full bg-green" /> currently
+            </span>
+            <span className="text-ink">Data Engineer II</span>
+            <span className="text-ink-faint">@ Centauri Health Solutions</span>
+          </button>
+
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-soft">
             Four years moving healthcare and financial data across GCP at scale.
             Now I spend my evenings further down the stack: schedulers, consensus,
             write-ahead logs, rate limiters, mostly in Rust, because I want to
@@ -53,15 +64,19 @@ const Hero = () => {
         </div>
 
         <div className="animate-rise order-first md:order-none" style={{ animationDelay: '120ms' }}>
-          <figure className="w-40 md:w-52">
-            <img
-              src={getAssetPath('/25_0673_COIS_convocation-544.jpg')}
-              alt="Bharath Velamala"
-              className="w-full grayscale-[0.15] object-cover"
-              style={{ aspectRatio: '4 / 5' }}
-            />
-            <figcaption className="mt-2 font-mono text-[11px] leading-relaxed text-ink-faint">
-              convocation, university of arizona<br />ms data science, 2025
+          <figure className="w-48 border border-rule bg-paper-deep/50 p-2 shadow-sm md:w-60">
+            <div className="overflow-hidden">
+              <img
+                src={getAssetPath('/25_0673_COIS_convocation-544.jpg')}
+                alt="Bharath Velamala at convocation"
+                loading="eager"
+                className="w-full object-cover object-top"
+                style={{ aspectRatio: '4 / 5' }}
+              />
+            </div>
+            <figcaption className="mt-2 flex items-start gap-1.5 border-t border-rule pt-2 font-mono text-[11px] leading-relaxed text-ink-faint">
+              <span className="text-accent">↳</span>
+              <span>convocation · u of arizona<br />ms data science, 2025</span>
             </figcaption>
           </figure>
         </div>

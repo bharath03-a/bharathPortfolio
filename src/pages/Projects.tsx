@@ -14,7 +14,7 @@ const Projects = () => {
     category === 'All' ? projects : projects.filter((p) => p.category === category);
 
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="relative z-10 min-h-screen">
       <Navigation />
       <SocialIsland />
 
@@ -67,7 +67,8 @@ const Projects = () => {
                       {project.title}
                     </h2>
                     {project.status && (
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-accent-2">
+                      <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-green">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green" />
                         {project.status}
                       </span>
                     )}

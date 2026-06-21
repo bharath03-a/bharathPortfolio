@@ -20,6 +20,7 @@
     --ink-faint: 240 4% 56%;      /* #8A8A93 captions        */
     --accent: 228 76% 53%;        /* #2C4BE0 cobalt          */
     --accent-2: 38 72% 47%;       /* #CC8F22 ochre / gold    */
+    --green: 148 62% 37%;         /* #24985B "current" / live*/
     --rule: 45 12% 86%;           /* hairline borders        */
 
     --background: var(--paper);
@@ -110,5 +111,57 @@
   }
   .animate-rise {
     animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Background field: dot grid + two slow-drifting glows */
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--ink) / 0.10) 1px, transparent 0);
+    background-size: 26px 26px;
+  }
+  .bg-glow {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 9999px;
+    filter: blur(70px);
+    background: radial-gradient(circle, hsl(var(--accent) / 0.22), transparent 70%);
+    animation: drift 30s ease-in-out infinite;
+  }
+  .bg-glow-2 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 52vw;
+    height: 52vw;
+    border-radius: 9999px;
+    filter: blur(70px);
+    background: radial-gradient(circle, hsl(var(--accent-2) / 0.16), transparent 70%);
+    animation: drift2 38s ease-in-out infinite;
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(-10vw, -12vh); }
+    50%      { transform: translate(45vw, 22vh); }
+  }
+  @keyframes drift2 {
+    0%, 100% { transform: translate(8vw, 6vh); }
+    50%      { transform: translate(-30vw, -18vh); }
+  }
+
+  /* First-load loader bar */
+  .loadbar {
+    transform-origin: left;
+    animation: loadbar 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes loadbar {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  .cursor-blink { animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bg-glow, .bg-glow-2, .animate-rise, .loadbar, .cursor-blink { animation: none; }
+    .bg-glow { transform: translate(20vw, 8vh); }
+    .bg-glow-2 { transform: translate(-12vw, -6vh); }
   }
 }

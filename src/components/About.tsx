@@ -183,7 +183,7 @@ const About = () => {
                   <img
                     src={exp.image}
                     alt={exp.company}
-                    className="h-12 w-12 flex-shrink-0 rounded-lg bg-paper object-contain p-1.5 grayscale transition group-hover:grayscale-0 md:h-14 md:w-14"
+                    className="h-12 w-12 flex-shrink-0 rounded-lg bg-paper object-contain p-1.5 grayscale transition duration-300 group-hover:grayscale-0 md:h-14 md:w-14"
                   />
                   <span className="font-mono text-[13px] text-ink-faint">{exp.period}</span>
                 </div>
@@ -194,8 +194,8 @@ const About = () => {
                       {exp.company}
                     </h3>
                     {exp.current && (
-                      <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-accent-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent-2" /> current
+                      <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-green">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green" /> current
                       </span>
                     )}
                   </div>
@@ -236,7 +236,7 @@ const About = () => {
                 <img
                   src={edu.image}
                   alt={edu.institution}
-                  className="h-12 w-12 flex-shrink-0 rounded-lg bg-paper object-contain p-1.5 grayscale transition group-hover:grayscale-0"
+                  className="h-12 w-12 flex-shrink-0 rounded-lg bg-paper object-contain p-1.5 grayscale transition duration-300 group-hover:grayscale-0"
                 />
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">

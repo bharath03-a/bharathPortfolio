@@ -41,6 +41,7 @@ export default {
 					faint: 'hsl(var(--ink-faint))',
 				},
 				rule: 'hsl(var(--rule))',
+				green: 'hsl(var(--green))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

@@ -65,7 +65,7 @@ const Blog = () => {
 
   if (active) {
     return (
-      <div className="min-h-screen bg-paper">
+      <div className="relative z-10 min-h-screen">
         <Navigation />
         <SocialIsland />
         <PostView post={active} onBack={() => setParams({})} />
@@ -74,7 +74,7 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="relative z-10 min-h-screen">
       <Navigation />
       <SocialIsland />
 

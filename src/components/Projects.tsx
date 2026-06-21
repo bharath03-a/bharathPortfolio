@@ -36,7 +36,8 @@ const Projects = () => {
                     {project.title}
                   </h3>
                   {project.status && (
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-accent-2">
+                    <span className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-green">
+                      <span className="h-1.5 w-1.5 rounded-full bg-green" />
                       {project.status}
                     </span>
                   )}
